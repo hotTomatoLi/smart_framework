@@ -70,10 +70,27 @@ public class PropsUtil {
         return value;
     }
 
+    /**
+     * 获取数值型属性（默认值为0）
+     * @param properties
+     * @param key
+     * @return
+     */
+    public static int getInt(Properties properties, String key){
+        return getInt(properties,key,0);
+    }
+
+    /**
+     * 获取数值型属性 可指定默认值
+     * @param properties
+     * @param key
+     * @param defaultValue
+     * @return
+     */
     public static int getInt(Properties properties, String key ,int defaultValue){
         int value = defaultValue;
         if(properties.contains(key)){
-//            value = properties.getProperty(key);
+            value = CastUtil.castInt(properties.getProperty(key));
         }
         return  value;
     }
