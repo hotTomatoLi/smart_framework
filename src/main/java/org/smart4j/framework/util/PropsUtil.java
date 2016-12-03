@@ -31,6 +31,8 @@ public class PropsUtil {
             if(inputStream == null){
                 throw new FileNotFoundException(fileName + " file is not found");
             }
+            properties = new Properties();
+            properties.load(inputStream);
         }catch (IOException e){
             LOGGER.error("load Properties file failure",e);
         }finally {
